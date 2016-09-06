@@ -12,7 +12,7 @@ var WebpackConfig = {
     ],
     output: {
         path: __dirname + "/dist",
-        filename: "bundled.js"
+        filename: "app_bundle.js"
     },
     module: {
         loaders:
