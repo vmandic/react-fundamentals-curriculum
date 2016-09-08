@@ -1,0 +1,46 @@
+html, body, #app, .main-container, .content {
+    height: 100%;
+} 
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(252, 90, 44, 0.89);
+    color: #fff;
+    padding: 5px;
+}
+
+.content {
+    background-size: cover;
+    background-image: url("../images/pattern.svg");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.searchBoxWrapper h1 {
+    font-size: 45px;
+    color: #fff;
+    font-weight: 100;
+}
+
+.searchBoxCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.searchBoxRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+}

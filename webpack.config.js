@@ -23,7 +23,10 @@ var WebpackConfig = {
             query: {
                 presets: ["react"]
             }
-        }]
+        },
+        { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/, loader: "file" },
+        { test: /\.css$/, loader: "style-loader!css-loader" }
+        ]
     },
     plugins: [HtmlWebpackPluginConfig]
 };

@@ -3,4 +3,4 @@ var ReactDOM = require("react-dom");
 var HelloWorldComponent = require("./components/HelloWorld.js");
 var routes = require("./config/routes");
 
-ReactDOM.render(<HelloWorldComponent />, document.getElementById("app"));
+ReactDOM.render(routes, document.getElementById("app"));

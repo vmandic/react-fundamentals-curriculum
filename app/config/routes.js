@@ -8,7 +8,7 @@ var IndexRoute = ReactRouter.IndexRoute;
 var browserHistory = ReactRouter.browserHistory;
 
 // component imports:
-var MainLayout = require("../components/MainLayout.js");
+var MainLayoutContainer = require("../containers/MainLayoutContainer.js");
 var HomeSearchCity = require("../components/HomeSearchCity.js");
 var Forecast = require("../components/Forecast.js");
 var ForecastDayDetails = require("../components/ForecastDayDetails.js"); 
@@ -16,7 +16,7 @@ var ForecastDayDetails = require("../components/ForecastDayDetails.js");
 // router configuration:
 var routes = (
     <Router history={browserHistory}>
-        <Route path="/" component={MainLayout}>
+        <Route path="/" component={MainLayoutContainer}>
             <IndexRoute component={HomeSearchCity} />
             <Route path="forecast/:city" component={Forecast}>
                 <Route path="details/:date" component={ForecastDayDetails} />

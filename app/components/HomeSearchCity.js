@@ -1,10 +1,14 @@
 // development imports:
 var React = require("react");
+var SearchBox = require("../components/SearchBox.js");
 
 var HomeSearchCity = React.createClass({
-    render: function() {
+    render: function () {
         return (
-            <p>Hello world!</p>
+            <div className="searchBoxWrapper">
+                <h1>Enter a City and State</h1>
+                <SearchBox className="searchBoxCol" />
+            </div>
         );
     }
 });
