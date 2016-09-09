@@ -1,7 +1,6 @@
 // development imports:
 var React = require("react");
-var HelloWorld = require("../components/HelloWorld.js");
-var HeaderContainer = require("../containers/HeaderContainer.js");
+var Header = require("../components/Header.js");
 
 // styles:
 require("../assets/styles/app.css");
@@ -10,7 +9,7 @@ var MainLayoutContainer = React.createClass({
     render: function() {
         return (
             <div className="main-container">
-                <HeaderContainer />
+                <Header />
                 <div className="content">
                     {this.props.children}
                 </div>

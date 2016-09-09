@@ -1,31 +1,27 @@
 // development imports:
 var React = require("react");
 var PropTypes = React.PropTypes;
-var WeatherApi = require("../helpers/WeatherApi.js");
-var axios = require("axios");
 
 var SearchBox = React.createClass({
+    contextTypes: {
+        router: PropTypes.object.isRequired
+    },
     propTypes: {
         className: PropTypes.string
     },
-
     getInitialState: function () {
         return {
             city: ""
         };
     },
+
     handleSearchOnClick: function (e) {
         e.preventDefault();
-        console.log(this.state.city);
-        axios.all(
-        [
-            WeatherApi.getCurrentWeather(this.state.city),
-            WeatherApi.getDayForecast(this.state.city)
-        ]).then(function (data) {
-            console.log("DATA: ", data);
-        }).catch(function(err){
-            console.error(err);
-        });
+
+        if (this.state.city && this.state.city.trim().length > 0)
+            this.context.router.push({
+                pathname: "/forecast/" + this.state.city
+            });
     },
     handleCityOnChange: function (e) {
         this.setState({ city: e.target.value });
