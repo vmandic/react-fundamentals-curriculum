@@ -59,3 +59,45 @@ h1.loading {
     font-weight: 100;
     text-align: center;
 }
+
+.forecastDays ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.forecastDays ul li {
+    padding: 5px;
+    margin: 2px;
+    text-align: center;
+    display: inline-block;
+}
+
+.weather-icon {
+    width: 200px;
+    margin: 5px;
+    height: 105px;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position-x: 50%;
+}
+
+.weather-icon.icon-01n {
+    background-image: url("../images/01n.svg");
+}
+
+.weather-icon.icon-01d {
+    background-image: url("../images/01d.svg");
+}
+
+.weather-icon.icon-02d {
+    background-image: url("../images/02d.svg");
+}
+
+.weather-icon.icon-02n {
+    background-image: url("../images/02n.svg");
+}
+
+.weather-icon.icon-10d {
+    background-image: url("../images/10d.svg");
+}

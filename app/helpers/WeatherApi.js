@@ -9,6 +9,10 @@ var WeatherApi = {
 
     getDayForecast: function (cityName) {
         return axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + cityName + "&type=accurate&APPID=" + API_KEY_WAPI + "&cnt=5");
+    },
+    
+    getWeather: function(cityName) {
+        return axios.all([this.getCurrentWeather(cityName), this.getDayForecast(cityName)]);
     }
 };
 
