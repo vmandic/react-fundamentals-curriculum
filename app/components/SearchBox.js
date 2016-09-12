@@ -14,6 +14,11 @@ var SearchBox = React.createClass({
             city: ""
         };
     },
+    getDefaultProps: function() {
+        return {
+            className: "searchBoxRow" 
+        };
+    },
 
     handleSearchOnClick: function (e) {
         e.preventDefault();
@@ -31,8 +36,9 @@ var SearchBox = React.createClass({
         return (
             <div className={this.props.className}>
                 <input
+                    value={this.state.city}
                     type="text"
-                    placeholder="Zagreb"
+                    placeholder="Zagreb, HR"
                     className="form-control"
                     onChange={this.handleCityOnChange} />
                 <button

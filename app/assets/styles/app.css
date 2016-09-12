@@ -15,6 +15,16 @@ html, body, #app, .main-container, .content {
     margin-top: 5px;
 }
 
+.header > a {
+    color: #fff;
+    margin-left: 10px;
+}
+
+.header > a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
 .content {
     height: 100%;
     width: 100%;
@@ -71,6 +81,15 @@ h1.loading {
     margin: 2px;
     text-align: center;
     display: inline-block;
+    cursor: pointer;
+}
+
+.forecastDays ul li:hover {
+    text-decoration: underline;
+}
+
+.forecastDays ul li h3 {
+    margin-top: 5px;
 }
 
 .weather-icon {
@@ -79,7 +98,7 @@ h1.loading {
     height: 105px;
     background-repeat: no-repeat;
     background-size: 50%;
-    background-position-x: 50%;
+    background-position: 50%;
 }
 
 .weather-icon.icon-01n {
@@ -100,4 +119,15 @@ h1.loading {
 
 .weather-icon.icon-10d {
     background-image: url("../images/10d.svg");
+}
+
+.weather-icon.icon-10d {
+    background-image: url("../images/03d.svg");
+}
+
+.dayDetails {
+    display: flex;
+    margin: 10px auto;
+    align-items: center;
+    flex-direction: column;
 }

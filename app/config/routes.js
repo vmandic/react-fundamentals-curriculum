@@ -18,9 +18,8 @@ var routes = (
     <Router history={browserHistory}>
         <Route path="/" component={MainLayoutContainer}>
             <IndexRoute component={HomeSearchCity} />
-            <Route path="forecast/:city" component={Forecast}>
-                <Route path="details/:date" component={ForecastDayDetails} />
-            </Route>
+            <Route path="forecast/:city" component={Forecast} />
+            <Route path="forecast/:city/details/:date" component={ForecastDayDetails} />
         </Route>
     </Router>
 );

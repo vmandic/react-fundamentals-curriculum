@@ -1,10 +1,18 @@
 // development imports:
 var React = require("react");
+// var router = require("react-router");
+var PropTypes = React.PropTypes;
 var WeatherApi = require("../helpers/WeatherApi.js");
+var Utils = require("../helpers/Utils.js");
+var Link = require("react-router").Link;
 
 var DayItem = require("../components/DayItem.js");
 
 var Forecast = React.createClass({
+    contextTypes: {
+        router: PropTypes.object.isRequired
+    },
+
     getInitialState: function () {
         return {
             isLoading: true,
@@ -27,21 +35,36 @@ var Forecast = React.createClass({
                         city: city
                     });
 
-                window.dd = data;
-
-                }.bind(this), 1000);
+                }.bind(this), 500);
             }.bind(this)).catch(function (err) {
                 console.error("Weather api error: ", err);
             });
     },
 
-    renderDays: function(days) {
-        var itemsToRender = []; 
-        for (var i = 0; i < days.length; i++) {
-            var day = days[i];
-            itemsToRender.push(<DayItem key={i} icon={day.weather[0].icon} text="some text" />);
-        }
+    handleDaySelected: function (dateFormated, dayData) {
+        event.preventDefault();
 
+        this.context.router.push({
+            pathname: location.pathname + '/details/' + dateFormated,
+            state: {
+                dayData: dayData
+            },
+            query: {
+                date: dateFormated,
+                city: this.state.city
+            }
+        })
+    },
+
+    renderDays: function (days) {
+        var itemsToRender = [];
+        for (var i = 0; i < days.length; i++) {
+            var dateFormated = Utils.getDate(days[i].dt);
+            itemsToRender.push
+                (
+                    <DayItem key={i} icon={days[i].weather[0].icon} text={dateFormated} click={this.handleDaySelected.bind(this, dateFormated, days[i])} />
+                );
+        }
         return itemsToRender;
     },
 
@@ -50,13 +73,14 @@ var Forecast = React.createClass({
             this.state.isLoading === true ?
                 <h1 className="loading">Loading weather information...</h1> :
 
-                <div style={{textAlign: "center"}} className="forecastDays">
-                    <h1 className="loading">{this.state.city}</h1>
+                <div style={{ textAlign: "center" }} className="forecastDays">
+                    <h1 className="loading">{this.state.weatherData[0].data.name} ({this.state.weatherData[0].data.sys.country}) </h1>
                     <h3>Weather now: {this.state.weatherData[0].data.weather[0].description}</h3>
+                    <h3>Temp.: {Utils.convertTemp(this.state.weatherData[0].data.main.temp) } C*</h3>
                     <br/>
                     <h2>Select a day</h2>
                     <ul>
-                        {this.renderDays(this.state.weatherData[1].data.list)}
+                        {this.renderDays(this.state.weatherData[1].data.list) }
                     </ul>
                 </div>
         );
